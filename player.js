@@ -7,15 +7,13 @@ function Player(x, y) {
     this.accelly = 0;
     this.toolPlace = 0;
     this.inventory = make2Darray(27, 2);
-    //this.inventory[0][0] = 0;
-    //this.inventory[0][1] = 25;
-    
+
     this.initializeInventory = function() {
         for (var i = 0; i < this.inventory.length; i++) {
             this.inventory[i][1] = 0;
         }
     }
-    
+
     this.toolbar = function() {
         textSize(20);
         for (var i = 0; i <= 8; i++) {
@@ -49,42 +47,29 @@ function Player(x, y) {
             }
         }
     }
-    
+
     this.update = function() {
-        if (keyIsDown(65)) {
-            this.xspeed = -10;
-        }
-        else if (keyIsDown(68)) {
-            this.xspeed = 10;
-        }
-        else {
-            this.xspeed = 0;
-        }
-        if (keyIsDown(87)) {
-            this.yspeed = -10;
-        }
-        else if (keyIsDown(83)) {
-            this.yspeed = 10;
-        }
-        else {
-            this.yspeed = 0;
-        }
-        
-        
+        if (keyIsDown(65))      this.xspeed = -10;
+        else if (keyIsDown(68)) this.xspeed = 10;
+        else                    this.xspeed = 0;
+
+        if (keyIsDown(87))      this.yspeed = -10;
+        else if (keyIsDown(83)) this.yspeed = 10;
+        else                    this.yspeed = 0;
     }
-    
+
     this.move = function() {
         this.x += this.xspeed;
         this.y += this.yspeed;
     }
-    
+
     this.display = function() {
         fill(0);
         noStroke();
         rectMode(CENTER);
         rect(this.x, this.y, 30, 90);
     }
-    
+
     this.interaction = function() {
         if (mouseIsPressed) {
             if (mouseButton == LEFT) {
@@ -174,8 +159,8 @@ function isEmpty(x, y) {
     else {
         return false;
     }
-}        
-        
+}
+
 function isBlock(x, y) {
     if (x >= 0 && x <= blocks.length - 1) {
         if (y >= 0 && y <= blocks[0].length - 1) {
@@ -261,7 +246,7 @@ function addToInv(id, amount) {
         }
     }
 }
-                 
+
 function heightOf(x, y) {
     if (isBlock(x, y)) {
         return blocks[x][y].h;
@@ -270,7 +255,7 @@ function heightOf(x, y) {
         return 0;
     }
 }
-                 
+
 function idOf(x, y) {
     if (isBlock(x, y)) {
         return blocks[x][y].id;

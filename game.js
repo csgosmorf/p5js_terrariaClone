@@ -1,5 +1,4 @@
 var textures = [];
-var items = [];
 var xoff = 0.0;
 var xBlocks;
 var yBlocks;
