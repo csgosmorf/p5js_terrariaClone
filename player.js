@@ -9,9 +9,8 @@ function Player(x, y) {
     this.inventory = make2Darray(27, 2);
 
     this.initializeInventory = function() {
-        for (var i = 0; i < this.inventory.length; i++) {
+        for (var i = 0; i < this.inventory.length; i++)
             this.inventory[i][1] = 0;
-        }
     }
 
     this.toolbar = function() {
@@ -127,9 +126,8 @@ function mouseWheel(event) {
 }
 
 function keyPressed() {
-    if (keyCode >= 49 && keyCode <= 57) {
+    if (keyCode >= 49 && keyCode <= 57)
         player.toolPlace = keyCode - 49;
-    }
 }
 
 function blockX(x) {
@@ -141,41 +139,19 @@ function blockY(y) {
 }
 
 function isEmpty(x, y) {
-    if (x >= 0 && x <= blocks.length - 1) {
-        if (y >= 0 && y <= blocks[0].length) {
-            if (blocks[x][y] != null) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        return false;
-    }
+    if (inRange(x,0,blocks.length-1) && inRange(y,0,blocks[0].length-1))
+      return blocks[x][y] == null;
+    return false;
+}
+
+function inRange(x,min,max) {
+    return x >= min && x <= max;
 }
 
 function isBlock(x, y) {
-    if (x >= 0 && x <= blocks.length - 1) {
-        if (y >= 0 && y <= blocks[0].length - 1) {
-            if (blocks[x][y] != null) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        return false;
-    }
+    if (inRange(x,0,blocks.length-1) && inRange(y,0,blocks[0].length-1))
+      return blocks[x][y] != null;
+    return false;
 }
 
 function mineBlock(xpos, ypos) {
@@ -246,21 +222,15 @@ function addToInv(id, amount) {
 }
 
 function heightOf(x, y) {
-    if (isBlock(x, y)) {
-        return blocks[x][y].h;
-    }
-    else {
-        return 0;
-    }
+    if (isBlock(x, y))
+      return blocks[x][y].h;
+    return 0;
 }
 
 function idOf(x, y) {
-    if (isBlock(x, y)) {
-        return blocks[x][y].id;
-    }
-    else {
-        return null;
-    }
+    if (isBlock(x, y))
+      return blocks[x][y].id;
+    return null;
 }
 
 
