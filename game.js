@@ -18,10 +18,6 @@ function preload() {
         textures[i] = loadImage("images/textures/" + i + ".png");
     }
 
-//    for (var i = 0; i <= 2; i++) {
-//        items[i] = loadImage("images/items/" + i + ".png");
-//    }
-
     // Game Configuration
     pixelDensity(5);
     xBlocks = 1024;
@@ -51,7 +47,6 @@ function setup() {
 function draw() {
     background(0,191,255);
     player.update();
-    player.move();
     moveCamera();
     displayBlocks();
     player.display();

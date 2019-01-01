@@ -56,9 +56,7 @@ function Player(x, y) {
         if (keyIsDown(87))      this.yspeed = -10;
         else if (keyIsDown(83)) this.yspeed = 10;
         else                    this.yspeed = 0;
-    }
 
-    this.move = function() {
         this.x += this.xspeed;
         this.y += this.yspeed;
     }
