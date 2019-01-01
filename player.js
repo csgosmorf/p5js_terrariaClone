@@ -68,13 +68,18 @@ function Player(x, y) {
     }
 
     this.interaction = function() {
-        if (mouseIsPressed) {
-            if (mouseButton == LEFT) {
-                mineBlock(mouseX, mouseY);
-            }
-            if (mouseButton == RIGHT) {
-                placeBlock(mouseX, mouseY);
-            }
+        if (!mouseIsPressed) return;
+        switch (mouseButton) {
+          case LEFT:
+            mineBlock(mouseX,mouseY);
+            break;
+
+          case RIGHT:
+            placeBlock(mouseX,mouseY);
+            break;
+
+          default:
+            break;
         }
     }
 }
