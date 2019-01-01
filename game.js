@@ -25,7 +25,7 @@ function preload() {
 
     // Game Configuration
     pixelDensity(5);
-    xBlocks = 4096;
+    xBlocks = 1024;
     yBlocks = 20;
     minYBlocks = 80;
     blockSize = 30;
@@ -45,12 +45,12 @@ function setup() {
     makeTrees();
     //createCaves();
     createCopper();
+    cursor("images/cursors/myCursor.png",0,0);
 }
 
 
 function draw() {
     background(0,191,255);
-    cursor("images/cursors/myCursor.png",0,0);
     player.update();
     player.move();
     moveCamera();
