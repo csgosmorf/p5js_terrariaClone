@@ -18,7 +18,7 @@ function Block(x, y, id, h, placed, hp, w) {
     this.w = w;
     this.placed = placed;
     this.hp = hp;
-    
+
     this.display = function() {
         strokeWeight(1);
         stroke(0);
@@ -28,7 +28,7 @@ function Block(x, y, id, h, placed, hp, w) {
 
 function createBlocks(blockSize, noiseIntensity) {
     var n = int(noise(xoff) * yBlocks);
-    
+
     for (var x = 0; x <= (xBlocks); x++) {
         for (var y = 0; y <= n + minYBlocks; y++) {
             if (y != n + minYBlocks) {
@@ -241,7 +241,7 @@ function Window() {
     this.bottom;
     this.left;
     this.right;
-    
+
     this.update = function() {
         this.top = currentCamY - height/2;
         this.bottom = currentCamY + height/2;
